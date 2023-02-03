@@ -1,0 +1,1274 @@
+:root {					
+    --gris: rgba(151, 146, 146, 0.953);	
+    --noir: rgba(0, 0, 0, 0.645);	
+    --hauteur-menu: 59px;
+    --couleur-deroulante-ombre: rgba(0,0,0,0.3);	
+    --case-menu: rgb(19, 18, 18);
+}
+
+html, body {
+  margin: 0;
+  font-family:  sans-serif ;
+  background-color: black;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth; 
+}
+
+/* ===================================================================== */
+/* HEADER */   
+/* ===================================================================== */
+
+/* CSS Document */
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+
+
+
+nav {
+  position: fixed;
+  z-index: 10;
+  font-family: Lato, "Helvetica Neue", helvetica, sans-serif;
+  font-size: 1em;
+  box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
+  background-color:rgb(40,38,38);
+  width: 100%;
+}
+
+#container {
+	margin: 0 auto;
+}
+
+#barre-menu {
+  position:fixed;
+  z-index:10;
+  width: 100%;
+  box-shadow: 0px 1px 2px 1px rgba(0,0,0,0.3);
+}
+
+.toggle,
+[id^=drop] {
+	display: none;
+}
+
+#icon {
+  position: absolute;
+  font-size: 44px;
+  margin-top: -8px;
+  margin-left:-6px;
+}
+
+#Arr {
+  font-size: 18px;
+  position:absolute;
+  margin-top:-3px;
+  margin-left: 7px;
+}
+
+#space {
+  font-size:14px;
+}
+
+.profil1 {
+    width:38px;
+    position:absolute;
+    top:10px;
+    right:17px;
+}
+
+.profil2 {
+    width:38px;
+    float:right;
+    margin-top: -9px;
+    margin-right: -5px;
+}
+
+.Logo {
+    position:fixed;
+    top:-9px;
+    left:35px;
+    width:135px;
+    z-index: 21;
+}
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+	float: left;
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+}
+
+#droite2 {
+  float:right;
+}
+
+#droite1 {
+  display:none;
+}
+	
+/* Positioning the navigation items inline */
+nav ul li {
+	margin: 0px;
+	display:inline-block;
+	}
+
+nav ul li:hover {
+  background-color:black;
+}
+
+nav ul li:hover > a{
+  color:white;
+}
+
+/* Styling the links */
+nav a {
+	display:block;
+	padding:14px 20px;	
+	color:rgb(216, 215, 215);
+    font-family: Lato, "Helvetica Neue", helvetica, sans-serif;
+    font-size: 1em;
+	text-decoration:none;
+}
+
+nav ul ul li a {
+  background-color: black;
+  color:white;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+nav ul li ul li:hover { background: #000000; }
+
+/* Background color change on Hover */
+
+nav ul ul li a:hover {
+  background-color: rgb(40,38,38);
+}
+
+nav ul ul {
+	position: absolute;
+    overflow: hidden;
+    max-height: 0;
+	top: 60px; 
+}
+
+	
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+
+nav ul li:hover > ul {
+  animation: apparitionSousMenu 1s forwards;
+}
+
+@media all and (min-width : 770px) {
+
+}
+
+@keyframes apparitionSousMenu {
+  0% {
+  }
+  30% {
+    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+  }
+  100% {
+    max-height: 50em;
+    box-shadow: 0px 3px 3px 1px rgba(0,0,0,0.3);
+  }
+}
+
+.hide {
+  margin-left: -51px;
+  position: absolute;
+  left:0;
+  z-index: 0;
+  width: 5000vw;
+  height: 100vh;
+  margin-left: -5000px;
+  margin-top: 54px; 
+  background-color: rgba(37, 37, 37, 0.7);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -webkit-transition: opacity 1s ease-in-out;
+}
+
+@media all and (min-width : 769px) {
+nav ul li:hover > .hide {
+  opacity: 1.0;
+  transition: opacity .35s ease-in-out;
+  -moz-transition: opacity .35s ease-in-out;
+  -webkit-transition: opacity .35s ease-in-out;}
+}
+
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+.sousmenu1 li{width:236px;}
+.sousmenu2 li{width:126px;}
+.sousmenu3 li{width:233px;}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	/* has to be the same number as the "width" of "nav ul ul li" */ 
+	left:170px; 
+}
+
+	
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:after { content:  ' ';}
+li > a:only-child:after { content: ''; }
+
+
+#sous-DeroulAnt {
+  background-color: black;
+  padding-top:20px;
+  padding-bottom:30px;
+  color:rgb(216, 215, 215);
+}
+
+.A-P {
+  padding-top:6px;
+  padding-bottom:7px;
+}
+
+.none {
+  display:none;
+}
+
+#space2 {
+    margin-left: 185px;
+}
+
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 888px) {
+
+	nav {
+      margin: 0;
+      background-color: black;
+      position: inherit;
+	}
+  
+   nav ul {
+     width:100%;
+     margin:0;
+   }
+ 
+    nav ul ul {
+    display: none;
+    overflow: show;
+    max-height: 100%;
+    /* has to be the same number as the "line-height" of "nav a" */
+    top: 60px; 
+    }
+
+
+	/* Hide the navigation menu by default */
+	/* Also hide the  */
+	.toggle + a,
+	.menu {
+		display: none;
+	}
+
+  .menu {
+    z-index:20;
+    height:100%;
+    background-color:black;
+    position:fixed;
+    overflow: auto;
+  }
+
+	/* Stylinf the toggle lable */
+	.toggle {
+    cursor: pointer;
+		display: block;
+		background-color: rgb(40, 38, 38);
+		padding:7px 24px 53px 20px;	
+		color:#FFF;
+		text-decoration:none;
+		border:none;
+	}
+
+	.toggle:hover {
+		background-color: black;
+	}
+  
+    #sous-DeroulAnt:hover {
+    background-color: rgb(40, 38, 38);
+    color:white;
+    }
+  
+   .A-P {
+    margin-top:0px;
+   }
+
+	/* Display Dropdown when clicked on Parent Lable */
+	[id^=drop]:checked + ul {
+		display: block;
+	}
+
+	/* Change menu item's width to 100% */
+	nav ul li {
+		display: block;
+		width: 100%;
+		}
+
+	nav ul ul .toggle,
+	nav ul ul a {
+		padding: 0 40px;
+	}
+
+	nav ul ul ul a {
+		padding: 0 80px;
+	}
+
+	nav a:hover,
+ 	nav ul ul ul a {
+		background-color: rgb(40, 38, 38);
+	}
+  
+	nav ul li ul li .toggle,
+	nav ul ul a,
+  nav ul ul ul a{
+		padding:14px 20px;	
+		color:#FFF;
+		font-size:17px; 
+	}
+  
+  
+	nav ul li ul li .toggle,
+	nav ul ul a {
+		background-color: rgb(41, 42, 46); 
+	}
+
+	/* Hide Dropdowns by Default */
+	nav ul ul {
+		float: none;
+		position:static;
+		color: #ffffff;
+		/* has to be the same number as the "line-height" of "nav a" */
+	}
+		
+	/* Hide menus on hover */
+	nav ul ul li:hover > ul,
+	nav ul li:hover > ul {
+		display: none;
+	}
+		
+	/* Fisrt Tier Dropdown */
+	nav ul ul li {
+		display: block;
+		width: 100%;
+	}
+
+	nav ul ul ul li {
+		position: static;
+		/* has to be the same number as the "width" of "nav ul ul li" */ 
+	}
+
+  nav ul ul li a {
+    background-color: rgb(53, 51, 59);
+  }
+
+    .sousmenu1 li{
+      width:100%;
+    }
+  
+    .menu {
+      margin-top:60px;
+    }
+
+    .none {
+      display:inline-block;
+    }
+
+    #droite1 {
+    display:inline-block;
+    }
+
+    #droite2 {
+    display:none;
+    }
+    
+    .A-P {
+    padding:0;
+    }
+
+    .neno {
+    display:none;
+    }
+
+    #space {
+    margin-left: 20px;
+   }
+
+    #space2 {
+        margin-left: 0px;
+    }
+
+    .Logo {
+        left: 57px;
+        top: -8px;
+        pointer-events: none;
+    }
+
+    .hide {background-color: transparent;}
+
+}
+
+@media all and (max-width : 330px) {
+
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
+
+}
+
+
+
+/* ===================================================================== */
+/* CORPS */   
+/* ===================================================================== */
+
+.PRESENTATION {     
+    background: url(FondOrange1.jpg) no-repeat center/cover;
+    padding: 82px 40px 20px 40px;
+    overflow: auto;
+    height: auto; 
+    overflow-x: hidden;
+}
+
+.Presentation-noir {
+    background-color: black;
+    min-height: 515px;
+    height: auto;
+    width: 100%;
+    max-width: 1160px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 40px;
+    margin-bottom: 0;
+    padding-top: 1px;  
+    padding-right: 1px;
+    padding-bottom: 30px;
+}                 
+
+#Titre-1 {
+    color: white;
+    font-size: 50px;
+    line-height: 1.2;
+    max-width: 600px;
+    margin-top: 70px;
+    margin-left: 70px;
+    margin-bottom: 5px;
+}
+
+.text-1 {
+    color: var(--gris);
+    font-weight: normal;
+    line-height: 1.5;
+    font-size: 17px;
+    margin-left: 70px;
+    max-width: 575px;
+}
+
+.partie-text {
+    display: inline-block;
+    vertical-align: top;
+    max-width: 50%;
+    position: absolute;
+    z-index: 8;
+}
+
+.IMG-profil {
+  max-width: 480px;
+  width: 45%;
+  float: right;
+  margin-right: -35px;
+  margin-top: -25px;
+}    
+
+.IMG-profil2 {
+  display: none;
+}
+
+.IMG-Allons-y {
+    width: 325px;
+    margin-top: 5px;
+    margin-left: 70px;
+}
+
+/* --------------------------------------------------------------------- */
+
+.CERTIFICATION {    
+    background-color: black;
+    height: 485px;
+    color: var(--gris);
+    padding: 86px 40px 27px 45px;
+}
+
+.Presentation-noir2 {
+    height: auto;
+    max-width: 1160px;
+    margin-right: auto;
+    margin-left: auto;   
+}
+
+.div-texte2 {
+    display: inline-block;
+    width: 550px;
+    min-width: 450px;
+}
+
+.div-ordinateur {
+    width: calc(100% - 520px);
+    float: right;
+    max-height: 400px;
+    margin-left: 40px;
+    margin-top: -380px;
+}
+.div-ordinateur2 { display: none }
+
+.ordinateur {
+    width: 105%;
+    max-width: 610px;
+    margin-top: 360px; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-90%);
+}
+.ordinateur2 { display: none }
+
+.ENCADRE-1 {
+    background-color: rgba(255, 55, 0, 0.961);
+    color:black;
+    margin-bottom: -10px;
+    padding: 6px 8px;
+    display:inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+.Titre-2 {
+    color: white;
+    font-weight: normal;
+    font-size: 34px;
+    line-height: 41px;
+    margin-bottom: -6px;
+    margin-top: 22px;
+    max-width: 500px;
+}
+
+.description-2 {
+    max-width: 550px;
+    padding-bottom: 5px;
+    font-size: 17px;
+    line-height: 23px;
+}
+
+.table-certification td {
+    color: white;
+    font-size: 17px;
+    padding-bottom: 8px;
+}
+
+#n1 {
+    padding-right: 20px;
+    color: rgba(253, 42, 4, 0.88);
+    font-size: 34px;
+    font-weight: bold;
+}
+
+#n2 {
+    color: rgb(1, 169, 207);
+    font-size: 34px;
+    font-weight: bold;
+}
+
+#n3 {
+    color: rgb(224, 180, 3);
+    font-size: 34px;
+    font-weight: bold;
+}
+
+/* --------------------------------------------------------------------- */
+
+.PROJETS {           
+    background: url(FondNoirGris.png) no-repeat center/cover;
+    height: auto;
+    width: 100%;
+    display: flex;
+}
+
+.flex-child:first-child {
+  background: url(Galerie.png) no-repeat right/cover;
+} 
+
+.flex-child {
+  flex: 1;
+  padding: 96px 40px 80px 50px;
+}  
+
+.ENCADRE-2 {
+  background-color: rgb(255, 187, 0);
+  color:black;
+  margin-bottom: -15px;
+  padding: 6px 8px;
+  display:inline-block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.Titre-3 {
+  color: white;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 41px;
+  margin-bottom: -6px;
+  margin-top: 23px;
+  max-width: 500px;
+}
+
+.description-3 {
+  max-width: 550px;
+  padding-bottom: 3px;
+  font-size: 17px;
+  line-height: 23px;
+  color: var(--gris);
+  margin-top: 14px;
+}
+
+.table-projet {
+  margin-left: -15px;
+}
+
+.table-projet td {
+  padding: 6px;
+  color: white;
+  font-size: 17px;
+  background-color: rgb(31, 31, 32);
+  width: 510px;
+}
+
+#s {
+  color: rgba(253, 42, 4, 0.88);
+  font-size: 34px;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;
+  width: 20%; 
+  padding-top: 7px;
+}
+
+.t {
+  float: right;
+  width: 80%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+.t p {
+  margin: 0;
+  margin-top: 5px;
+}
+
+.description-projets {
+  font-size: 13px;
+  color: var(--gris);
+}
+
+#s1 {
+  width: 28px;
+  height: 33px;
+  margin-top: 11px;
+}
+
+
+#s2 {
+  width: 30px;
+  margin-top: 6px;
+}
+
+#s3 {
+  width: 26px;
+  margin-top: 5px;
+}
+
+#s4 {
+  width: 26px;
+  margin-top: 10px;
+}
+
+
+/* --------------------------------------------------------------------- */
+
+.CONTACT {         
+    background: url(FondOrange2.jpg) no-repeat center/cover;
+    min-height: 303px;
+    height: auto;
+    padding: 20px 120px 33px 120px;
+}
+
+.Contact-noir {
+    background-color: black;
+    height: auto;
+    /*max-height: 100px;*/
+    min-height: 300px;
+    width: 100%;
+    max-width: 1150px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#Titre-4 {
+  color: white;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 30px;
+  margin-bottom: -6px;
+  padding: 77px 60px 0 60px;
+}
+
+.description-4 {
+  color: var(--gris);
+  padding: 0px 130px 4px 130px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.remonter {
+  width:150px;
+  padding-bottom: 50px;
+}
+
+
+
+/* ===================================================================== */
+/* TABLETTE */   
+/* ===================================================================== */
+
+@media only screen and (max-width: 989px) {        
+
+  #Titre-1 {
+      font-size: 46px;
+  }
+
+  .IMG-Allons-y {
+      width: 315px;
+  }
+
+/* --------------------------------------------------------------------- */
+  
+  .Titre-2 {
+    font-size: 32px;
+  }
+  .description-2 {
+    max-width: 460px;
+  }
+
+  .div-texte2 {
+    width: 480px;
+  }
+
+  .div-ordinateur {
+    width: calc(100% - 480px);
+  }
+
+/* --------------------------------------------------------------------- */
+
+  .flex-child:first-child {
+    flex: 0.8;
+  } 
+
+  .flex-child {
+    padding: 96px 40px 80px 45px;
+  }  
+
+  .Titre-3 {
+    font-size: 32px;
+  }
+
+/* --------------------------------------------------------------------- */
+
+  #Titre-4 {
+    font-size: 32px;
+    line-height: 38px;
+    padding: 77px 60px 5px 60px;
+  }
+
+  .remonter {
+    width:140px;
+    padding-bottom: 55px;
+  }
+}
+
+/*****************   *****************/
+
+@media only screen and (max-width: 888px) {
+
+
+  .PROJETS {           
+    display: block;
+    padding-bottom: 15px;
+  }
+
+  .flex-child:first-child {
+    margin-left: -40px;
+    width: 110%;
+    height: 200px;
+  } 
+
+  .flex-child {
+    padding: 16px 40px 80px 50px;
+  }  
+
+  .div-ENCADRE-2 {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 535px;
+  }
+
+  .Titre-3 {
+    font-size: 34px;
+    padding-right: 38px;
+    margin-top: 23px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .description-3 {
+    margin-top: 17px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .table-projet {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .table-projet td {
+    padding: 6px;
+    color: white;
+    font-size: 17px;
+    background-color: rgb(31, 31, 32);
+    width: 510px;
+  }
+
+  .div-table-projet {
+    margin-left: -15px;
+  }
+}
+
+
+/*****************   *****************/
+
+@media only screen and (max-width: 835px) {
+  .Presentation-noir {
+    padding-bottom: 60px;
+  }          
+}
+
+/*****************   *****************/
+
+@media only screen and (max-width: 769px) {
+  .PRESENTATION {     
+    padding: 185px 14% 20px 14%;
+}
+
+.Presentation-noir {
+    max-height: none;
+    width: auto;
+    margin-top: 70px; 
+    padding-bottom: 100px;
+    text-align: center;
+    padding-right: 15px;
+    padding-left: 15px;
+}                 
+
+.partie-text {
+  max-width: 390px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+}
+
+#Titre-1 {
+    color: white;
+    font-size: 45px;
+    line-height: 1.2;
+    max-width: 600px;
+    margin-top: 70px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+
+.text-1 {
+    margin-left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.IMG-profil {
+  display: none;
+}
+
+.IMG-profil2 {
+  display: inline-block;
+  width: 70%;
+  margin-top: -100px;
+}
+
+.IMG-Allons-y {
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 0px;
+}      
+
+/* --------------------------------------------------------------------- */
+
+.CERTIFICATION {    
+  background-color: black;
+  height: auto;
+  color: var(--gris);
+  padding: 86px 14% 86px 14%;
+}
+
+.Presentation-noir2 {
+  height: auto;
+  max-width: 1160px;
+  margin-right: auto;
+  margin-left: auto;  
+}
+
+.div-texte2 {
+  display: inline;
+  width: 100%;
+  min-width: 450px;
+  height: auto;
+}
+
+.div-ordinateur {
+  width: 60%;
+  float: none;
+  max-height: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  /*margin-top: -200px;*/
+  background-color: red;
+}
+.div-ordinateur2 { 
+  display: inline-block; 
+}
+
+.ordinateur2 {
+  display: block;
+  width: 70%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 610px;
+  margin-top: 40px; 
+}
+
+.ordinateur { display: none }
+.div-ordinateur { display: none }
+
+
+
+.ENCADRE-1 {
+  background-color: rgba(255, 55, 0, 0.961);
+  color:black;
+  margin-bottom: -10px;
+  padding: 6px 8px;
+  display:inline-block;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+.Titre-2 {
+  color: white;
+  font-weight: normal;
+  font-size: 190%;
+  line-height: 41px;
+  margin-bottom: -6px;
+  margin-top: 22px;
+  max-width: 500px;
+}
+
+.description-2 {
+  max-width: 550px;
+  padding-bottom: 5px;
+  font-size: 17px;
+  line-height: 23px;
+}
+
+.table-certification td {
+  color: white;
+  font-size: 17px;
+  padding-bottom: 8px;
+}
+
+#n1 {
+  padding-right: 20px;
+  color: rgba(253, 42, 4, 0.88);
+  font-size: 34px;
+  font-weight: bold;
+}
+
+#n2 {
+  color: rgb(1, 169, 207);
+  font-size: 34px;
+  font-weight: bold;
+}
+
+#n3 {
+  color: rgb(224, 180, 3);
+  font-size: 34px;
+  font-weight: bold;
+}
+
+/* --------------------------------------------------------------------- */
+
+.PROJETS {           
+}
+
+.Titre-3 {
+  font-size: 30px;
+}
+
+.description-3 {
+  font-size: 15px;
+}
+
+.table-projet td {
+  font-size: 16px;
+}
+
+/* --------------------------------------------------------------------- */
+
+.CONTACT {         
+    padding: 20px 15% 33px 15%;
+}
+
+#Titre-4 {
+  font-size: 30px;
+  line-height: 36px;
+  padding: 77px 40px 5px 40px;
+}
+
+.description-4 {
+  padding: 0px 12% 4px 12%;
+  font-size: 15px;
+}
+
+.remonter {
+  padding-top: 10px;
+  padding-bottom: 70px;
+}
+}
+
+
+
+@media only screen and (max-width: 650px) {
+  .description-3 {
+    padding-left: 12px;
+  }
+}
+@media only screen and (max-width: 648px) {
+  .description-3 {
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 646px) {
+  .description-3 {
+    padding-left: 10px;
+  }
+}
+@media only screen and (max-width: 644px) {
+  .description-3 {
+    padding-left: 8x;
+  }
+}@media only screen and (max-width: 642px) {
+  .description-3 {
+    padding-left: 7px;
+  }
+}
+@media only screen and (max-width: 641px) {
+  .description-3 {
+    padding-left: 5px;
+  }
+}
+@media only screen and (max-width: 640px) {
+  .description-3 {
+    padding-left: 6px;
+  }
+}
+@media only screen and (max-width: 639px) {
+  .description-3 {
+    padding-left: 5px;
+  }
+}
+@media only screen and (max-width: 635px) {
+  .description-3 {
+    padding-left: 2px;
+  }
+}
+@media only screen and (max-width: 630px) {
+  .description-3 {
+    padding-left: 0px;
+  }
+}
+
+
+
+
+
+@media only screen and (max-width: 625px) {
+  .PRESENTATION {     
+    padding: 28% 14% 20px 14%;
+}
+
+.Presentation-noir {
+    max-height: none;
+    width: auto;
+    margin-top: 70px; 
+    padding-bottom: 10%;
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px;
+}                 
+
+.partie-text {
+  max-width: 390px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -30px;
+}
+
+#Titre-1 {
+    color: white;
+    font-size: 250%;
+    line-height: 1.2;
+    max-width: 600px;
+    margin-top: 70px;
+    margin-left: 0px;
+    margin-bottom: 5px;
+}
+
+.text-1 {
+    margin-left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+}
+
+.IMG-profil {
+  display: none;
+}
+
+.IMG-profil2 {
+  display: inline-block;
+  width: 70%;
+  margin-top: -25%;
+}
+
+.IMG-Allons-y {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+    margin-left: 0px;
+}      
+
+/* --------------------------------------------------------------------- */
+.ENCADRE-1 {
+  background-color: rgba(255, 55, 0, 0.961);
+  color:black;
+  margin-bottom: -10px;
+  padding: 5px 7px;
+  display:inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 12px;
+}
+
+#n1, #n2, #n3 {
+  font-size: 32px;
+}
+
+.description-2 {
+  font-size: 15px;
+  padding-bottom: 10px;
+}
+
+.table-certification td {
+  font-size: 16px;
+}
+
+
+.ENCADRE-2 {
+  background-color: rgb(255, 187, 0);
+  color:black;
+  margin-bottom: -15px;
+  padding: 5px 7px;
+  display:inline-block;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+
+/* --------------------------------------------------------------------- */
+
+.CONTACT {         
+    padding: 20px 15% 33px 15%;
+}
+
+#Titre-4 {
+  font-size: 180%;
+  line-height: 36px;
+  padding: 70px 40px 5px 40px;
+}
+
+.description-4 {
+  padding: 0px 12% 4px 12%;
+  font-size: 15px;
+}
+
+.remonter {
+  padding-top: 10px;
+  padding-bottom: 70px;
+  width: 40%;
+  max-width: 135px;
+}
+}

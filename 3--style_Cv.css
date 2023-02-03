@@ -1,0 +1,535 @@
+:root {					
+    --gris: rgba(151, 146, 146, 0.953);	
+    --noir: rgba(0, 0, 0, 0.645);	
+    --hauteur-menu: 59px;
+    --couleur-deroulante-ombre: rgba(0,0,0,0.3);	
+    --case-menu: rgb(19, 18, 18);
+}
+
+html, body {
+  margin: 0;
+  font-family:  sans-serif ;
+  background-color: black;
+  max-width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth; 
+}
+
+/* ===================================================================== */
+/* HEADER */   
+/* ===================================================================== */
+
+ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+nav {
+  width: 100%;
+  font-size: 18px;
+  position: fixed;
+  top: 0;
+}
+
+nav > ul {
+  font-family: Montserrat, sans-serif;
+  font-weight: lighter;
+  font-size: 16px;
+  display: flex;
+  text-align: center;
+  box-shadow: 0px 1px 2px 1px var(--couleur-deroulante-ombre);
+  height: var(--hauteur-menu);
+}
+
+nav ul {
+  list-style-type: none;
+}
+
+nav > ul > li {
+  background-color: rgb(40, 38, 38);
+  position: relative;
+  height: 100%;
+  flex: 1;
+}
+
+nav > ul > li:hover > a{
+  color: white;
+}
+
+nav > ul > li:focus > a{
+  color: white;
+}
+
+nav > ul > li > a {
+  position: absolute;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  height: 68%; /*?*/
+  width: 100%; /****************************/
+}
+
+li a {
+  text-decoration: none;
+  color: rgb(216, 215, 215);
+  cursor: pointer;
+}
+
+.menu-deroulant > a:after{
+  content: '▾'; 
+  font-size: 20px;
+  margin-left: 7px;
+  padding-right: 14px;
+  display: inline-block;
+}
+
+/*fléche qui tourne quand on la survole*/
+/*.menu-deroulant:hover > a:after{
+  animation: rotationFleche 0.2s linear forwards;
+}
+
+@keyframes rotationFleche {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(45deg);
+  }
+  100%{
+    transform: rotate(90deg);
+  }
+}*/
+
+.sous-menu {
+  margin-top: var(--hauteur-menu);
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  overflow: hidden;
+  max-height: 0;
+  /*border-radius: 2px;*/
+  background-color: var(--case-menu);
+  font-size: 14px;
+  position: absolute;
+}
+
+.sous-menu li {
+  padding-left: 8px;
+}
+.sous-menu li a {
+  padding-top: 6px;
+  padding-bottom: 5px;
+}
+.sous-menu.l li {
+  padding-left: 9px;
+}
+
+.menu-deroulant:focus > .sous-menu {
+  animation: apparitionSousMenu 1s forwards;
+}
+
+@keyframes apparitionSousMenu {
+  0% {
+  }
+  30% {
+    box-shadow: 0px 3px 3px 1px var(--couleur-deroulante-ombre);
+  }
+  100% {
+    max-height: 50em;
+    box-shadow: 0px 3px 3px 1px var(--couleur-deroulante-ombre);
+  }
+}
+
+.sous-menu > li:hover {
+  background-color: rgba(69, 70, 72, 0.3);
+}
+
+.sous-menu > li > a {
+  align-items: center;
+  display: flex;
+  height: 50px;
+  padding-left: 20px;
+  width: 100%;
+}
+
+.sous-menu > li:hover > a {
+  color: white;
+}
+
+.Accueil1 {
+  max-width: 45px; 
+  padding-left: 50px;
+} .Accueil1:hover {background-color: var(--case-menu);}
+
+.Projet1 {
+  max-width: 110px;
+} .Projet1:hover {background-color: var(--case-menu);} 
+  .Projet1:focus {background-color: var(--case-menu);}
+
+.Language1 {
+  max-width: 130px;
+} .Language1:hover {background-color: var(--case-menu);}
+  .Language1:focus {background-color: var(--case-menu);}
+
+.Contact1 {
+  max-width: 97px;
+} .Contact1:hover {background-color: var(--case-menu);}
+
+.Profil1 {
+  max-width: 250px;
+} .Profil1:hover {background-color: var(--case-menu);}
+  .Profil1:focus {background-color: var(--case-menu);}
+
+.Accueil1 a {
+  padding-top: 19px;
+  padding-right: 18px;
+}
+.Projet1 a {
+  padding-top: 15px;
+  margin-left: -2px;
+}
+.Language1 a {
+  padding-top: 15px;
+  margin-left: -4px;
+}
+.Contact1 a {
+  padding-top: 19px;
+  padding-right: 19px;
+}
+
+.LogoT {
+  max-width: 150px;
+  padding-left: 23px;
+  margin-top: -10px;
+  padding-bottom: 10px;
+}
+.LogoT-img {
+  width: 130px;
+  padding-top: 1px;
+}
+
+.wi {
+  min-width: 100px;
+  padding-bottom: 4px;
+}
+
+.ProfilEtReseaux {
+    z-index: 10;
+    margin-top: -59px;
+    position: sticky;
+    margin-left: calc(100% - 250px);
+}
+
+.ProfilEtReseaux a {
+    font-size: 16px;
+    font-weight: lighter;
+    min-width: 200px;
+    padding-bottom: 3px;
+    padding-top: 14px;  
+}
+
+.sous-menu li a {
+  font-size: 14px;
+}
+
+.ProfilEtReseaux img {
+    width: 36px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 18px;
+}
+
+
+.hide {
+  margin-left: -51px;
+  display: none;
+  position: absolute;
+  left:0;
+  z-index: 0;
+  width: 5000vw;
+  height: 100vh;
+  margin-left: -5000px;
+  margin-top: 59px; /*ou 19px pour bordure*/
+  background-color: rgba(37, 37, 37, 0.7);
+  pointer-events: none;
+}
+.menu-deroulant:focus > .hide {
+  display: block;
+}
+
+
+/* ===================================================================== */
+/* CORPS */   
+/* ===================================================================== */
+
+.CERTIFICATION {    
+    background-color: black;
+    height: auto;
+    color: var(--gris);
+    padding: 150px 40px 40px 45px;
+}
+
+.Presentation-noir2 {
+    height: auto;
+    max-width: 1160px;
+    margin-right: auto;
+    margin-left: auto; 
+}
+
+.div-texte2 {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Titre-2 {
+  color: white;
+  font-size: 50px;
+  line-height: 1.2;
+  max-width: 640px;
+  margin-bottom: 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.description-2 {
+    font-size: 17px;
+    line-height: 23px;
+    text-align: center;
+    padding-bottom: 3%;
+}
+
+#planete {
+  height: 50px;
+  width: 45px;
+  margin-bottom: -8px;
+  padding-left: 13px;
+}
+
+.image {
+  margin-top: -15px;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.double-fleche {
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+
+.visit {
+  padding-top: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-family: Lato,Helvetica Neue,helvetica,sans-serif;
+  --line-height: 1.5rem;
+  font-size: 1rem;
+  text-decoration: none;
+}
+
+.link-page {
+  text-decoration: none;
+  color: rgba(255, 123, 0, 0.952);
+  padding: 5px 5px;
+}
+
+
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	40% {
+		-webkit-transform: translateY(-30px);
+		-ms-transform:     translateY(-30px);
+		transform:         translateY(-30px)
+	}
+	60% {
+		-webkit-transform: translateY(-15px);
+		-ms-transform:     translateY(-15px);
+		transform:         translateY(-15px)
+	}
+}
+.bounce_button {  
+  position: absolute;
+  left: 50%;
+  height: 30px;
+  width: 50px;
+  margin-left: -20px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  color: white;
+}
+
+span:hover {
+  animation-name: bounce;
+  -moz-animation-name: bounce;
+}
+
+
+/* --------------------------------------------------------------------- */
+
+.CONTACT {         
+    background: url(FondOrange2.jpg) no-repeat center/cover;
+    min-height: 303px;
+    height: auto;
+    padding: 20px 120px 33px 120px;
+}
+
+.Contact-noir {
+    background-color: black;
+    height: auto;
+    /*max-height: 100px;*/
+    min-height: 300px;
+    width: 100%;
+    max-width: 1150px;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+#Titre-4 {
+  color: white;
+  font-weight: normal;
+  font-size: 34px;
+  line-height: 30px;
+  margin-bottom: -6px;
+  padding: 77px 60px 0 60px;
+}
+
+.description-4 {
+  color: var(--gris);
+  padding: 0px 130px 4px 130px;
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.tech {
+  font-size: 18px;
+}
+
+.remonter {
+  width:150px;
+  padding-bottom: 50px;
+}
+
+
+
+/* ===================================================================== */
+/* TABLETTE */   
+/* ===================================================================== */
+
+@media only screen and (max-width: 989px) {        
+
+  .Titre-2 {
+    font-size: 42px;
+  }
+  
+  .description-2 {
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+  }
+  
+  #planete {
+    height: 45px;
+    width: 40px;
+  }
+
+  .visit {
+    font-size: 0.9rem;
+  }
+
+/* --------------------------------------------------------------------- */
+
+  #Titre-4 {
+    font-size: 32px;
+    line-height: 38px;
+    padding: 77px 60px 5px 60px;
+  }
+
+  .remonter {
+    width:140px;
+    padding-bottom: 55px;
+  }
+}
+
+/*****************   *****************/
+
+@media only screen and (max-width: 769px) {
+
+.CERTIFICATION {    
+}
+
+.Presentation-noir2 {
+}
+
+.div-texte2 {
+}
+
+.Titre-2 {
+  font-size: 32px;
+  margin-bottom: -5px;
+}
+
+#planete {
+  height: 40px;
+  width: 35px;
+  vertical-align: -8%;
+}
+
+.image {
+  padding-top: -10px;
+  width: 92%;
+}
+
+.description-2 {
+  font-size: 15px;
+  max-width: 90%;
+}
+
+
+/* --------------------------------------------------------------------- */
+
+.CONTACT {         
+    padding: 20px 15% 33px 15%;
+}
+
+#Titre-4 {
+  font-size: 30px;
+  line-height: 36px;
+  padding: 77px 40px 5px 40px;
+}
+
+.description-4 {
+  padding: 0px 12% 4px 12%;
+  font-size: 15px;
+}
+
+.remonter {
+  padding-top: 10px;
+  padding-bottom: 70px;
+}
+}
+
+
+
